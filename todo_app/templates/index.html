@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shem's to do</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+      form {
+        margin: auto;
+        border: 2px solid black;
+        width: 50%;
+        font-family: "Poppins";
+        border-radius: 5px;
+        padding: 5px;
+      }
+      legend {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      button {
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="{% url 'index'%}" method="POST">
+      {% csrf_token %}
+      <legend>My todo</legend>
+      <label for="task_name">Task Name:</label>
+      <input
+        type="text"
+        name="task_name"
+        id="task_name"
+        placeholder="type here........"
+      /><br />
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="description........"
+      /><br />
+      <button type="submit">Add Task</button>
+    </form>
+  </body>
+</html>

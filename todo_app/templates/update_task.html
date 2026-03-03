@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Task</title>
+    <style>
+      form {
+        margin: auto;
+        border: 2px solid black;
+        width: 50%;
+        font-family: "Poppins";
+        border-radius: 5px;
+        padding: 5px;
+      }
+      legend {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      button {
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <legend>My todo</legend>
+      <label for="task_name">Task Name:</label>
+      <input
+        type="text"
+        name="task_name"
+        id="task_name"
+        placeholder="type here........"
+        value="{{ task.task_name }}"
+      /><br />
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="description........"
+        value="{{ task.description }}"
+      /><br />
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>

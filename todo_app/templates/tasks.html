@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Page</title>
+    {% load static %}
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Sans:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
+      .task_card {
+        width: 20%;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 20px;
+      }
+      h3 {
+        color: rgb(12, 12, 180);
+        font-family: Poppins;
+      }
+      p {
+        color: black;
+        font-family: "Ubuntu Sans";
+      }
+      body {
+        display: flex;
+      }
+
+      button {
+        background-color: blue;
+        border-radius: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    {% for task in tasks %}
+    <div class="task_card">
+      <h3>{{ task.task_name }}</h3>
+      <p>{{ task.description }}</p>
+      <div>
+        <button>
+          <a href="{% url 'update_task' task.id %}">Update Task</a>
+        </button>
+        <button>
+          <a
+            href="{% url 'delete_task' task.id %}"
+            onclick="return confirm('Do you want to Delete?');"
+            >Delete Task</a
+          >
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
+</html>
