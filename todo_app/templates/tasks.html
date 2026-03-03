@@ -11,6 +11,7 @@
       .task_items {
         display: flex;
         flex-wrap: wrap;
+        margin: auto;
       }
       .task_card {
         width: 20%;
@@ -50,7 +51,7 @@
       <div class="task_card">
         <h3>{{ task.task_name }}</h3>
         <p>{{ task.description }}</p>
-        <div>
+        <div class="myButtons">
           <button>
             <a href="{% url 'update_task' task.id %}">Update Task</a>
           </button>
